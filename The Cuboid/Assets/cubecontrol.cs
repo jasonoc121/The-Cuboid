@@ -41,6 +41,7 @@ public class cubecontrol : MonoBehaviour
             transform.Rotate(Vector3.up, -90);
         if (Input.GetKeyDown(KeyCode.RightShift))
             transform.Rotate(Vector3.up, 90);
+        
 
 
     }
