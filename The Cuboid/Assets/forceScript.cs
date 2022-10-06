@@ -22,7 +22,20 @@ public class forceScript : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-       // collision.transform.position += Vector3.down;
-        print("Ouch!");
+       planeBehavior objectHitplanebehavior = collision.gameObject.GetComponent< planeBehavior > ();
+        if (objectHitplanebehavior)
+        {
+            print("found planeBehavior in object hit");
+            objectHitplanebehavior.takeDamage(20);
+
+            int ObjectsMaxHealth = objectHitplanebehavior.whatsYourMaxHealth();
+            if (ObjectsMaxHealth > 100)
+                objectHitplanebehavior .takeDamage(400);
+        }
+        else
+        {
+            print("didnt find planeBehavior in object hit");
+        }
+        // print("Ouch!");
     }
 }
