@@ -11,7 +11,7 @@ public class planeBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CHP = MHP
+        CHP = MHP;
     }
 
     // Update is called once per frame

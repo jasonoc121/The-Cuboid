@@ -5,11 +5,12 @@ using UnityEngine;
 public class cubecontrol : MonoBehaviour
 {
     private float turningspeed = 180;
+    public Transform cubeTemplate;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -20,13 +21,13 @@ public class cubecontrol : MonoBehaviour
 
         }
         if (Input.GetKey(KeyCode.UpArrow))
-        transform.position += (transform.forward* Time.deltaTime * 25);
+            transform.position += (transform.forward * Time.deltaTime * 25);
         if (Input.GetKey(KeyCode.DownArrow))
             transform.position -= (transform.forward * Time.deltaTime * 25);
         if (Input.GetKey(KeyCode.LeftArrow))
-            transform.position += (transform.right * -Time.deltaTime * 25);
+            transform.position -= (transform.right * Time.deltaTime * 25);
         if (Input.GetKey(KeyCode.RightArrow))
-            transform.position += (Vector3.right * Time.deltaTime * 25);
+            transform.position += (transform.right * Time.deltaTime * 25);
         if (Input.GetKey(KeyCode.A))
             transform.Rotate(Vector3.up, turningspeed * -Time.deltaTime);
         if (Input.GetKey(KeyCode.D))
@@ -41,8 +42,13 @@ public class cubecontrol : MonoBehaviour
             transform.Rotate(Vector3.up, -90);
         if (Input.GetKeyDown(KeyCode.RightShift))
             transform.Rotate(Vector3.up, 90);
-        
+    
 
-
+        if (Input.GetKeyDown(KeyCode.B))
+             Instantiate(cubeTemplate, transform.position + transform.forward,
+                 Quaternion.identity);
     }
+    
+  
+  
 }
