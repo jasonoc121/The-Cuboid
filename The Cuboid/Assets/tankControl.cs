@@ -8,7 +8,7 @@ public class tankControl : MonoBehaviour
     private float turnSpeed = 25.0f;
     private float horizontalInput;
     private float forwardInput;
-    private float turboBoost = 150.0f;
+    private float turboBoost = 10.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,8 +25,8 @@ public class tankControl : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift))
             transform.Translate(Vector3.forward * Time.deltaTime * speed * turboBoost);
 
-        transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
-        transform.Rotate(Vector3.up, Time.deltaTime * turnSpeed * horizontalInput);
+       transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
+       transform.Rotate(Vector3.up, Time.deltaTime * turnSpeed * horizontalInput);
 
     }
 }
