@@ -5,31 +5,49 @@ using UnityEngine;
 
 public class planeBehavior : MonoBehaviour
 {
-
+    public GameObject enemy;
     int CHP;
     public int MHP = 100;
     // Start is called before the first frame update
     void Start()
     {
         CHP = MHP;
+        print("Get the enemy tank before it reaches the water");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("h"))
-            takeDamage(12);
+        //if (Input.GetKeyDown("h"))
+         //   takeDamage(12);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        enemyMissile objecthitdetected = collision.gameObject.GetComponent<enemyMissile>();
+        if(objecthitdetected)
+        {
+            takeDamage(25);
+
+        }
     }
 
 
-   internal void takeDamage(int damage)
+    internal void takeDamage(int damage)
     {
         CHP -= damage;
-        print("ouch you hurt me my Health is now" + CHP);
+        print("Enemy Missile impact: " + CHP);
+
+        if (CHP <= 0)
+            Destroy(enemy);
+   
+            
+
     }
 
     internal int whatsYourMaxHealth()
     {
         return MHP;
+
     }
 }

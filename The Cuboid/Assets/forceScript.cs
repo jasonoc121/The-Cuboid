@@ -23,18 +23,24 @@ public class forceScript : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        
-            missile objecthitdetected = collision.gameObject.GetComponent<missile>();
-            if (objecthitdetected)
+
+        missile objecthitdetected = collision.gameObject.GetComponent<missile>();
+        if (objecthitdetected)
+        {
+            particle.Play();
+            Destroy(destroyObject, particle.main.duration);
+        }
+        else
+        {
+        enemyMissile objecthit = collision.gameObject.GetComponent<enemyMissile>();
+            if(objecthit)
             {
                 particle.Play();
                 Destroy(destroyObject, particle.main.duration);
             }
-            else
-        {
-
-
         }
+    }
+
         //planeBehavior objectHitplanebehavior = collision.gameObject.GetComponent< planeBehavior > ();
         // if (objectHitplanebehavior)
 
@@ -51,4 +57,3 @@ public class forceScript : MonoBehaviour
 
         // print("Ouch!");
     }
-}

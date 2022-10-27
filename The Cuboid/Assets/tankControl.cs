@@ -28,5 +28,7 @@ public class tankControl : MonoBehaviour
        transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
        transform.Rotate(Vector3.up, Time.deltaTime * turnSpeed * horizontalInput);
 
+        //learned from the unity pathway.
+
     }
 }
