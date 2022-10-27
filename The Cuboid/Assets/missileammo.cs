@@ -5,8 +5,6 @@ using UnityEngine;
 public class missileammo : MonoBehaviour
 {
     Rigidbody missileBody;
-    public GameObject destroyObject;
-    ParticleSystem particle;
     public Transform missileTemp;
     // Start is called before the first frame update
     void Start()
@@ -25,18 +23,10 @@ public class missileammo : MonoBehaviour
                    transform.rotation);
             Rigidbody projectileRB = newProjectile.GetComponent<Rigidbody>();
             projectileRB.useGravity = false;
-            projectileRB.AddExplosionForce(100, newProjectile.transform.position - newProjectile.transform.forward, 3);
+            projectileRB.AddExplosionForce(1000, newProjectile.transform.position - newProjectile.transform.forward, 3);
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-       // missile objecthitdetected = collision.gameObject.GetComponent<missile>();
-       // if (objecthitdetected)
-        {
-       //     particle.Play();
-       //     Destroy(destroyObject, particle.main.duration);
-
-        }
-    }
+    
+ 
 }
