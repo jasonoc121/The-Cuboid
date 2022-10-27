@@ -36,7 +36,7 @@ public class planeBehavior : MonoBehaviour
     internal void takeDamage(int damage)
     {
         CHP -= damage;
-        print("Enemy Missile impact! Remaining Durability: " + CHP);
+        print("Enemy Missile impact! Remaining Durability:" + CHP);
 
         if (CHP <= 0)
             Destroy(enemy);
